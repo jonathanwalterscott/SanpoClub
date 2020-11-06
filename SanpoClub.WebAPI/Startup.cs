@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using SanpoClub.WebAPI.Models;
 
 namespace SanpoClub.WebAPI
 {
@@ -25,7 +20,19 @@ namespace SanpoClub.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SanpoClubDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("SanpoClubDatabase"));
+            });
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "SanpoClub.Client",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:55877").AllowAnyHeader().Build();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,11 +44,9 @@ namespace SanpoClub.WebAPI
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
+            app.UseCors("SanpoClub.Client");
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
