@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   club: Club = {
+    id: '',
     name: '',
     description: ''
   };
