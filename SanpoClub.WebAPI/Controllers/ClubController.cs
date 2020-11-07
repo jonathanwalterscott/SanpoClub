@@ -30,6 +30,7 @@ namespace SanpoClub.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public ActionResult<Club> CreateClub(Club newClub)
         {
             newClub.Id = Guid.NewGuid().ToString();
