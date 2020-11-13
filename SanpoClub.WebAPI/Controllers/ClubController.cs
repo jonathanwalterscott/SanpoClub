@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using SanpoClub.WebAPI.Models;
 using Microsoft.AspNetCore.Cors;
 using System;
+using System.Collections.Generic;
 
 namespace SanpoClub.WebAPI.Controllers
 {
@@ -16,6 +17,12 @@ namespace SanpoClub.WebAPI.Controllers
         public ClubController(SanpoClubDbContext dbContext)
         {
             _DbContext = dbContext;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Club>>> AllClubs()
+        {
+            return await this._DbContext.Clubs.ToListAsync<Club>();
         }
 
         [HttpGet("{id}")]

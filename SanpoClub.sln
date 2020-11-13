@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanpoClub.WebAPI", "SanpoClub.WebAPI\SanpoClub.WebAPI.csproj", "{B64E4E1B-0405-4723-823A-EB4226D59552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanpoClub.Client", "SanpoClub.Client\SanpoClub.Client.csproj", "{0A360DF4-4E46-4AED-9B7D-054DC4AC72BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanpoClubClient", "SanpoClubClient\SanpoClubClient.csproj", "{0A360DF4-4E46-4AED-9B7D-054DC4AC72BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

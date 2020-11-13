@@ -7,19 +7,19 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyInterceptor } from './services/auth.interceptor';
+import { ClubProfileComponent } from './club-profile/club-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,10 +28,10 @@ import { MyInterceptor } from './services/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatListModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'club-profile', component: ClubProfileComponent, pathMatch: 'full'}
     ])
   ],
   providers: [

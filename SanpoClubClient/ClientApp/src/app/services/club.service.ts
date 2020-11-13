@@ -19,4 +19,8 @@ export class ClubService {
     return this.http.get<Club>('https://localhost:44322/api/club/' + clubId);
   }
 
+  public getAllClubs(): Observable<Club[]> {
+    return this.http.get<Club[]>('https://localhost:44322/api/club');
+  }
+
 }

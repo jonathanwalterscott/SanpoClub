@@ -7,10 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-home',
-  styleUrls: ['home.component.css'],
-  templateUrl: './home.component.html',
+  styleUrls: ['club-profile.component.css'],
+  templateUrl: './club-profile.component.html',
 })
-export class HomeComponent implements OnInit {
+export class ClubProfileComponent implements OnInit {
   constructor(private clubService: ClubService, private formBuilder: FormBuilder) {
   }
 
